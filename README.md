@@ -225,7 +225,7 @@ Start a container using the newly created image
 ```
 # docker run --name productservice -d -p 8000:8000 product:1.0
 ```
-Check the application : open a browser <http://localhost:3000/products>
+Check the application : open a browser <http://localhost:8000/products>
 
 ## Install IBM Cloud command-line and RedHat OpenShift tools:
 
