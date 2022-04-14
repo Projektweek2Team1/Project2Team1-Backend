@@ -358,7 +358,7 @@ Next Goto your local directory where you have developed the springboot applicati
 If you followed the previous step to Dockerize the application you should have a Dockerfile ready to use.
 
 Open the Openshift Console and open the Developer perspective.
-Click "Add" - "From Dockerfile"
+Click "Add" - "Import from Git"
 Fill in the form:
 * Git Repo URL: e.g. https://github.com/<username>/springboot-productservice.git
 * Container Port: 8000
