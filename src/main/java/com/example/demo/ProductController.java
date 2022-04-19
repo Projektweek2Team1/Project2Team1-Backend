@@ -37,6 +37,14 @@ public class ProductController {
                 "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6502/6502626_sd.jpg;maxHeight=640;maxWidth=550",
                 2,
                 1999.99F
+            ),
+            new Product(
+                "4",
+                "Intel® Core™ i7-8700K Processor",
+                "8 cores, 16MB cache, up to 4.2 GHz",
+                "https://www.intel.com/content/dam/www/global/badges/core-i7-processors-framed-badge-rwd.jpg.rendition.intel.web.480.270.jpg",
+                5,
+                599.99F
             )
         );
     }
