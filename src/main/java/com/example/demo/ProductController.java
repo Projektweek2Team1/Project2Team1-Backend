@@ -16,27 +16,27 @@ public class ProductController {
         return Arrays.asList(
             new Product(
                 "1",
-                "macbook Retina 13.3' ME662 (2013)",
-                "3.0GHz Dual-core Haswell Intel Core i5 Turbo Boost up to 3.2 GHz, 3MB L3 cache 8GB (two 4GB SO-DIMMs) of 1600MHz DDR3 SDRAM",
-                "https://www.dropbox.com/s/swg9bdr0ejcbtrl/img9.jpg?raw=1",
+                "Intel® Core™ i7-1265UE Processor",
+                "10 cores, 12MB cache, up to 4.70 GHz",
+                "https://www.intel.com/content/dam/www/global/badges/core-i7-processors-framed-badge-rwd.jpg.rendition.intel.web.480.270.jpg",
                 10,
-                2399
+                499.99F
             ),
             new Product(
                 "2",
-                "Macbook Pro 13.3' Retina MF841LL/A",
-                "Macbook Pro 13.3' Retina MF841LL/A Model 2015 Option Ram Care 12/2016",
-                "https://www.dropbox.com/s/6tqcep7rk29l59e/img2.jpeg?raw=1",
+                "XLR8 Gaming",
+                "3200MHz 32GB (2x16GB) DDR4 DRAM",
+                "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6401/6401196_sd.jpg;maxHeight=640;maxWidth=550",
                 15,
-                1199
+                116.99F
             ),
             new Product(
                 "3",
-                "Macbook Pro 15.4' Retina MC975LL/A Model 2012",
-                "3.0GHz Dual-core Haswell Intel Core i5 Turbo Boost up to 3.2 GHz, 3MB L3 cache 8GB (two 4GB SO-DIMMs) of 1600MHz DDR3 SDRAM",
-                "https://www.dropbox.com/s/78fot6w894stu3n/img3.jpg?raw=1",
-                1,
-                1800
+                "NVIDIA GeForce RTX 3090 Ti",
+                "The GeForce RTX 3090 Ti is a big ferocious GPU with TITAN class performance. Powered by Ampere—NVIDIA's 2nd gen RTX architecture—it doubles down on ray tracing and AI performance with enhanced Ray Tracing Cores, Tensor Cores and new streaming multiprocessors.",
+                "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6502/6502626_sd.jpg;maxHeight=640;maxWidth=550",
+                2,
+                1999.99F
             )
         );
     }
