@@ -42,11 +42,11 @@ public class Supplier {
         this.thumbnail_url = thumbnail_url;
     }
 
-    public String getLink() {
+    public String getUrl() {
         return this.url;
     }
 
-    public void setLink(String link) {
-        this.url = link;
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

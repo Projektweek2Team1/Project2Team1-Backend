@@ -2,18 +2,19 @@ package com.example.demo;
 
 public class Product {
 
-    private String id;
+    private int id;
     private String title;
     private String description;
     private String thumbnail_url;
     private int quantity;
     private float price;
+    private String type;
 
     public Product() {
 
     }
 
-    public Product(String id, String title, String description, String thumbnail_url, int quantity, float price) {
+    public Product(int id, String title, String description, String thumbnail_url, int quantity, float price, String type) {
         super();
         this.id = id;
         this.title = title;
@@ -21,13 +22,14 @@ public class Product {
         this.thumbnail_url = thumbnail_url;
         this.quantity = quantity;
         this.price = price;
+        this.type = type;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -69,6 +71,14 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 }
