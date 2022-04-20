@@ -17,8 +17,6 @@ public class ProductApplication {
 	public static void main(String[] args) {
 		String url = System.getenv("DB_URL");
 		String schema = System.getenv("DB_SCHEMA");
-		System.out.println(url);
-		System.out.println(schema);
 //		String url = "jdbc:postgresql://193.191.177.96:63889/potpal_db";
 //		String schema = "webshop";
 		DBConnectionService.connect(url, schema);
