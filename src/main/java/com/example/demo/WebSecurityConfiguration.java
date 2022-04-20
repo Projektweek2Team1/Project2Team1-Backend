@@ -31,6 +31,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .mvcMatchers(HttpMethod.GET, "/products/**").permitAll() // GET requests don't need auth
+                .mvcMatchers(HttpMethod.GET, "/suppliers/**").permitAll() // GET requests don't need auth
                 .anyRequest()
                 .authenticated()
                 .and()

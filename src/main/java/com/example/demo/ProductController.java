@@ -81,4 +81,13 @@ public class ProductController {
             return "Not Authorized to add product";
         }
     }
+
+    @GetMapping("/suppliers")
+    public List<Supplier> getAllSuppliers(){
+        return Arrays.asList(
+            new Supplier(1,"Intel","https://www.intel.com/content/dam/www/public/us/en/images/logos/logo-rwd.png.rendition.intel.web.1280.720.png" ,"https://www.intel.com/content/www/us/en/homepage.html"),
+            new Supplier(2, "AMD", "https://d3cy9zhslanhfa.cloudfront.net/media/6D972F55-8581-42E9-B19004B4B9C6882E/6402D423-A4D4-4F71-B4426826DF535016/webimage-0D0EA698-37CE-45FE-ABD49CBE61F82A7A.jpg", "https://www.amd.com/en"),
+            new Supplier(3, "NVIDIA", "https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-vert-500x200-2c50-d.png", "https://www.nvidia.com/en-us/")
+        )   ;
+    }
 }
