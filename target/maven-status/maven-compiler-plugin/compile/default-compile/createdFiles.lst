@@ -1,4 +1,5 @@
 com/example/demo/Product.class
+com/example/demo/Supplier.class
 com/example/demo/ScopeValidator.class
 com/example/demo/ProductApplication.class
 com/example/demo/WebSecurityConfiguration.class
