@@ -16,4 +16,3 @@ com\example\demo\ProductApplication$ShutdownConfig.class
 com\example\demo\ProductController.class
 com\example\demo\database\util\ConnectionException.class
 com\example\demo\WebSecurityConfiguration.class
-com\example\demo\database\util\AppContextListener.class
