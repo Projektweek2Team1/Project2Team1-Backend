@@ -15,19 +15,20 @@ import javax.annotation.PreDestroy;
 public class ProductApplication {
 
 	public static void main(String[] args) {
+		String url = System.getenv("DB_URL");
+		String schema = System.getenv("DB_SCHEMA");
+//		String url = "jdbc:postgresql://193.191.177.96:63889/potpal_db";
+//		String schema = "webshop";
+		DBConnectionService.connect(url, schema);
 		SpringApplication.run(ProductApplication.class, args);
-		System.out.println(System.getProperty("DB_URL"));
-		System.out.println(System.getenv("DB_URL"));
-//		String url = System.getenv("DB_URL");
-//		String schema = System.getenv("DB_SCHEMA");
-//		DBConnectionService.connect(url, schema);
 	}
 
 	public class TerminateBean {
 
 		@PreDestroy
 		public void onDestroy() throws Exception {
-//			DBConnectionService.disconnect();
+			DBConnectionService.disconnect();
+			System.out.println("Terminated connection!");
 		}
 	}
 

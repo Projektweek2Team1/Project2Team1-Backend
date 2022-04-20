@@ -2,11 +2,11 @@ package com.example.demo.database.service;
 
 public class AppService {
 
-    private final ProductServiceDB productService;
+    private final ProductService productService;
     private final SupplierService supplierService;
 
     public AppService() {
-        this.productService = new ProductServiceDB();
+        this.productService = new ProductService();
         this.supplierService = new SupplierService();
     }
 
@@ -14,7 +14,7 @@ public class AppService {
         return supplierService;
     }
 
-    public ProductServiceDB getProductService() {
+    public ProductService getProductService() {
         return productService;
     }
 }
