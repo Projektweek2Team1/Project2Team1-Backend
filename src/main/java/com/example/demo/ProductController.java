@@ -25,11 +25,6 @@ public class ProductController {
         return service.getProductService().getAll();
     }
 
-    @GetMapping("/products/{type}")
-    public List<Product> getProductsByType(@RequestParam String type) {
-        return service.getProductService().getByType(type);
-    }
-
     @GetMapping("/check")
     public boolean greeting(@RequestParam(value = "name", defaultValue = "World") String name,
             @AuthenticationPrincipal Jwt accessToken) {
@@ -79,6 +74,28 @@ public class ProductController {
             System.out.println("Contains sequence 'partner': "
                     + accessToken.getClaims().get("scope").toString().contains("partner"));
             service.getSupplierService().add(supplier);
+            return "Product added";
+        } else {
+            return "Not Authorized to add product";
+        }
+    }
+
+    @GetMapping("/orders")
+    public List<Order> getAllOrders(){
+        return service.getOrderService().getAll();
+    }
+
+    @PostMapping("/orders")
+    public String addOrder(@RequestBody Order order, @AuthenticationPrincipal Jwt accessToken) {
+        System.out.println("In POST Request");
+        String scope = accessToken.getClaims().get("scope").toString();
+        Boolean partnerRole = scope.contains("partner");
+
+        if (partnerRole) {
+            System.out.println("Contains sequence 'partner': " + accessToken.getClaims().get("scope").toString());
+            System.out.println("Contains sequence 'partner': "
+                    + accessToken.getClaims().get("scope").toString().contains("partner"));
+            service.getOrderService().add(order);
             return "Product added";
         } else {
             return "Not Authorized to add product";

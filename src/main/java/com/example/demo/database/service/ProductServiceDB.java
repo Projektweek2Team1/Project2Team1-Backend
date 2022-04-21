@@ -58,34 +58,6 @@ public class ProductServiceDB {
         return products;
     }
 
-    public List<Product> getAllOfType(String type) {
-        List<Product> products = new ArrayList<>();
-        if(type == null || type.trim().isEmpty() || type.equals("all")) {
-            return getAll();
-        }
-
-        String query = String.format("SELECT * from %s.products where type = ? order by price", schema);
-        try {
-            PreparedStatement statement = getConnection().prepareStatement(query);
-            statement.setString(1, type);
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String title = resultSet.getString("title");
-                String description = resultSet.getString("description");
-                String thumbnail_url = resultSet.getString("thumbnail_url");
-                int quantity = resultSet.getInt("quantity");
-                float price = resultSet.getFloat("price");
-                type = resultSet.getString("type");
-                Product product = new Product(id, title, description, thumbnail_url, quantity, price, type);
-                products.add(product);
-            }
-        } catch (SQLException e) {
-            throw new DbException(e.getMessage());
-        }
-        return products;
-    }
-
     public Product get(int id) {
         String query = String.format("SELECT * from %s.products where id = ?;", schema);
         try {
