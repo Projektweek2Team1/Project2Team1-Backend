@@ -4,17 +4,18 @@ import com.example.demo.database.service.AppService;
 
 import java.sql.Array;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Order {
 
     private int id;
     private String email;
-    private Date date;
+    private Timestamp date;
     private Integer[] itemIds;
 
     public Order() {}
 
-    public Order(int id, String email, Date date, Integer[] itemIds) {
+    public Order(int id, String email, Timestamp date, Integer[] itemIds) {
         super();
         this.id = id;
         this.email = email;
@@ -38,11 +39,11 @@ public class Order {
         this.email = email;
     }
 
-    public Date getDate() {
+    public Timestamp getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Timestamp date) {
         this.date = date;
     }
 

@@ -37,7 +37,7 @@ public class ProductServiceDB {
 
     public List<Product> getAll() {
         List<Product> products = new ArrayList<>();
-        String query = String.format("SELECT * from %s.products order by type, price where quantity > 0", schema);
+        String query = String.format("SELECT * from %s.products where quantity > 0 order by type, price", schema);
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();

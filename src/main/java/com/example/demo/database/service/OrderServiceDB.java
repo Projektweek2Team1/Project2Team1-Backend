@@ -22,7 +22,7 @@ public class OrderServiceDB {
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);
             statement.setString(1, order.getEmail());
-            statement.setDate(2, order.getDate());
+            statement.setTimestamp(2, order.getDate());
             statement.setArray(3, connection.createArrayOf("int", order.getItemIds()));
             statement.execute();
         } catch (SQLException e) {
@@ -39,7 +39,7 @@ public class OrderServiceDB {
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String email = resultSet.getString("email");
-                Date date = resultSet.getDate("date");
+                Timestamp date = resultSet.getTimestamp("date");
                 Integer[] itemIds = (Integer[]) resultSet.getArray("itemIds").getArray();
                 Order order = new Order(id, email, date, itemIds);
                 orders.add(order);
@@ -58,7 +58,7 @@ public class OrderServiceDB {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 String email = resultSet.getString("email");
-                Date date = resultSet.getDate("date");
+                Timestamp date = resultSet.getTimestamp("date");
                 Integer[] itemIds = (Integer[]) resultSet.getArray("itemIds").getArray();
                 Order order = new Order(id, email, date, itemIds);
                 return order;
