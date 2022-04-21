@@ -22,4 +22,8 @@ public class ProductService {
     public void delete(int id) {
         products.delete(id);
     }
+
+    public void decreaseQuantity(int id) {
+        products.decreaseQuantity(id);
+    }
 }

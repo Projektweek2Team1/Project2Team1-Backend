@@ -18,20 +18,12 @@ public class OrderServiceDB {
     }
 
     public void addOrder(Order order) {
-        String query = String.format("insert into %s.orders (\"email\",\"date\",\"chassis_id\",\"motherboard_id\",\"cpu_id\",\"gpu_id\",\"RAM_id\",\"SSD_id\",\"HDD_id\",\"batterij_id\",\"os_id\") values (?,?,?,?,?,?,?,?,?,?,?)", schema);
+        String query = String.format("insert into %s.orders (\"email\",\"date\",\"itemIds\") values (?,?,?)", schema);
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);
             statement.setString(1, order.getEmail());
             statement.setDate(2, order.getDate());
-            statement.setInt(3, order.getChassisId());
-            statement.setInt(4, order.getMotherboardId());
-            statement.setInt(5, order.getCpuId());
-            statement.setInt(6, order.getGpuId());
-            statement.setInt(7, order.getRamId());
-            statement.setInt(8, order.getSsdId());
-            statement.setInt(9, order.getHddId());
-            statement.setInt(10, order.getBatteryId());
-            statement.setInt(11, order.getOsId());
+            statement.setArray(3, connection.createArrayOf("int", order.getItemIds()));
             statement.execute();
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
@@ -48,16 +40,8 @@ public class OrderServiceDB {
                 int id = resultSet.getInt("id");
                 String email = resultSet.getString("email");
                 Date date = resultSet.getDate("date");
-                int chassisId = resultSet.getInt("chassis_id");
-                int motherboardId = resultSet.getInt("motherboard_id");
-                int cpuId = resultSet.getInt("cpu_id");
-                int gpuId = resultSet.getInt("gpu_id");
-                int ramId = resultSet.getInt("RAM_id");
-                int ssdId = resultSet.getInt("SSD_id");
-                int hddId = resultSet.getInt("HDD_id");
-                int batteryId = resultSet.getInt("batterij_id");
-                int osId = resultSet.getInt("os_id");
-                Order order = new Order(id, email, date, chassisId, motherboardId, cpuId, gpuId, ramId, ssdId, hddId, batteryId, osId);
+                Integer[] itemIds = (Integer[]) resultSet.getArray("itemIds").getArray();
+                Order order = new Order(id, email, date, itemIds);
                 orders.add(order);
             }
         } catch (SQLException e) {
@@ -75,16 +59,8 @@ public class OrderServiceDB {
             if (resultSet.next()) {
                 String email = resultSet.getString("email");
                 Date date = resultSet.getDate("date");
-                int chassisId = resultSet.getInt("chassis_id");
-                int motherboardId = resultSet.getInt("motherboard_id");
-                int cpuId = resultSet.getInt("cpu_id");
-                int gpuId = resultSet.getInt("gpu_id");
-                int ramId = resultSet.getInt("RAM_id");
-                int ssdId = resultSet.getInt("SSD_id");
-                int hddId = resultSet.getInt("HDD_id");
-                int batteryId = resultSet.getInt("batterij_id");
-                int osId = resultSet.getInt("os_id");
-                Order order = new Order(id, email, date, chassisId, motherboardId, cpuId, gpuId, ramId, ssdId, hddId, batteryId, osId);
+                Integer[] itemIds = (Integer[]) resultSet.getArray("itemIds").getArray();
+                Order order = new Order(id, email, date, itemIds);
                 return order;
             }
             return null;

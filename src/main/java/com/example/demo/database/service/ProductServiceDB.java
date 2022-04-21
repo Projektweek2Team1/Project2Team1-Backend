@@ -37,7 +37,7 @@ public class ProductServiceDB {
 
     public List<Product> getAll() {
         List<Product> products = new ArrayList<>();
-        String query = String.format("SELECT * from %s.products order by type, price", schema);
+        String query = String.format("SELECT * from %s.products order by type, price where quantity > 0", schema);
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);
             ResultSet resultSet = statement.executeQuery();
@@ -82,6 +82,17 @@ public class ProductServiceDB {
 
     public void delete(int id) {
         String query = String.format("delete from %s.products where id = ?", schema);
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, id);
+            statement.execute();
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }
+    }
+
+    public void decreaseQuantity(int id) {
+        String query = String.format("update %s.products set quantity = quantity - 1 where id = ? and quantity > 0", schema);
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, id);

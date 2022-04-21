@@ -97,6 +97,7 @@ public class ProductController {
             System.out.println("Contains sequence 'partner': "
                     + accessToken.getClaims().get("scope").toString().contains("partner"));
             service.getOrderService().add(order);
+            order.decreaseQuantities(service);
             return "Order added";
         } else {
             return "Not Authorized to add order";
