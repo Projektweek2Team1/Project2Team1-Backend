@@ -15,6 +15,10 @@ public class ProductService {
         return products.getAll();
     }
 
+    public List<Product> getByType(String type) {
+        return products.getAllOfType(type);
+    }
+
     public void add(Product product) {
         products.addProduct(product);
     }

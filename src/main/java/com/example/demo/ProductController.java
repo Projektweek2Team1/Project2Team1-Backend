@@ -25,6 +25,11 @@ public class ProductController {
         return service.getProductService().getAll();
     }
 
+    @GetMapping("/products/{type}")
+    public List<Product> getProductsByType(@RequestParam String type) {
+        return service.getProductService().getByType(type);
+    }
+
     @GetMapping("/check")
     public boolean greeting(@RequestParam(value = "name", defaultValue = "World") String name,
             @AuthenticationPrincipal Jwt accessToken) {
