@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.database.service.AppService;
 import org.springframework.security.oauth2.jwt.Jwt;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class ProductController {
 
     @PostMapping("/products")
     public String addProduct(@RequestBody Product product, @AuthenticationPrincipal Jwt accessToken) {
-        System.out.println("In POST Request");
+        System.out.println(LocalDateTime.now().toString() + "Products add");
         String scope = accessToken.getClaims().get("scope").toString();
         Boolean partnerRole = scope.contains("partner");
 
@@ -65,7 +66,7 @@ public class ProductController {
 
     @PostMapping("/suppliers")
     public String addProduct(@RequestBody Supplier supplier, @AuthenticationPrincipal Jwt accessToken) {
-        System.out.println("In POST Request");
+        System.out.println(LocalDateTime.now().toString() + "Suppliers add");
         String scope = accessToken.getClaims().get("scope").toString();
         Boolean partnerRole = scope.contains("partner");
 
@@ -74,9 +75,9 @@ public class ProductController {
             System.out.println("Contains sequence 'partner': "
                     + accessToken.getClaims().get("scope").toString().contains("partner"));
             service.getSupplierService().add(supplier);
-            return "Product added";
+            return "Supplier added";
         } else {
-            return "Not Authorized to add product";
+            return "Not Authorized to add supplier";
         }
     }
 
@@ -87,7 +88,7 @@ public class ProductController {
 
     @PostMapping("/orders")
     public String addOrder(@RequestBody Order order, @AuthenticationPrincipal Jwt accessToken) {
-        System.out.println("In POST Request");
+        System.out.println(LocalDateTime.now().toString() + "Orders add");
         String scope = accessToken.getClaims().get("scope").toString();
         Boolean partnerRole = scope.contains("partner");
 
@@ -96,9 +97,9 @@ public class ProductController {
             System.out.println("Contains sequence 'partner': "
                     + accessToken.getClaims().get("scope").toString().contains("partner"));
             service.getOrderService().add(order);
-            return "Product added";
+            return "Order added";
         } else {
-            return "Not Authorized to add product";
+            return "Not Authorized to add order";
         }
     }
 }
