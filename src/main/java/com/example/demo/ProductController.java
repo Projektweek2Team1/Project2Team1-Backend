@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "0.0.0.0/0",  allowCredentials="true", allowedHeaders = "*")
+@CrossOrigin(origins = "http://project-2-team-1-frontend-ucllteam16.ucll-ocp-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud",  allowCredentials="true", allowedHeaders = "*")
 @RestController
 public class ProductController {
 
